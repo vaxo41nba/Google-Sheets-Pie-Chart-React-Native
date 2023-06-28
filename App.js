@@ -42,7 +42,10 @@ export default function App() {
     axios
       .get(url)
       .then((res) => formatObj(res.data))
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        setList([]);
+        console.log(err);
+      })
       .finally(() => setRefreshing(false));
   };
 
